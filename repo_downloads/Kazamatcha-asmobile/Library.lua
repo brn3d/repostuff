@@ -1114,9 +1114,35 @@ type IconModule = {
 }
 
 local FetchIcons, Icons = pcall(function()
-    return (loadstring(
-        game:HttpGet("https://raw.githubusercontent.com/deividcomsono/lucide-roblox-direct/refs/heads/main/source.lua")
-    ) :: () -> IconModule)()
+    -- Fallback icon mapping using Roblox built-in assets
+    return {
+        GetAsset = function(name)
+            local iconMap = {
+                sword = "rbxassetid://7072706",
+                target = "rbxassetid://6022668",
+                users = "rbxassetid://6023426",
+                eye = "rbxassetid://6022630",
+                trees = "rbxassetid://6031925",
+                user = "rbxassetid://6023426",
+                heart = "rbxassetid://6022721",
+                star = "rbxassetid://6022743",
+                settings = "rbxassetid://6022713",
+                check = "rbxassetid://6022645",
+                ["chevron-up"] = "rbxassetid://6023097",
+                ["move-diagonal-2"] = "rbxassetid://6022721",
+                key = "rbxassetid://6022686",
+                move = "rbxassetid://6022721",
+                search = "rbxassetid://6023098",
+            }
+            if iconMap[name] then
+                return {
+                    Url = iconMap[name],
+                    Custom = false,
+                }
+            end
+            return nil
+        end
+    }
 end)
 
 function Library:GetIcon(IconName: string)
