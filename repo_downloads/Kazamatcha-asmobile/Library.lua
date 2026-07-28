@@ -1114,23 +1114,24 @@ type IconModule = {
 }
 
 local FetchIcons, Icons = pcall(function()
-    -- Icon data with URLs pointing to lucide-icons CDN
+    -- Icon data using eshepepe's roblox-lucide which provides PNG icons
+    local baseUrl = "https://cdn.jsdelivr.net/gh/Kampfkarren/roblox-lucide@main/icons/"
     local iconData = {
-        sword = {Url = "https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/sword.svg", Id = 1},
-        target = {Url = "https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/target.svg", Id = 2},
-        users = {Url = "https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/users.svg", Id = 3},
-        eye = {Url = "https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/eye.svg", Id = 4},
-        trees = {Url = "https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/trees.svg", Id = 5},
-        user = {Url = "https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/user.svg", Id = 6},
-        heart = {Url = "https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/heart.svg", Id = 7},
-        star = {Url = "https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/star.svg", Id = 8},
-        settings = {Url = "https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/settings.svg", Id = 9},
-        check = {Url = "https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/check.svg", Id = 10},
-        ["chevron-up"] = {Url = "https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/chevron-up.svg", Id = 11},
-        ["move-diagonal-2"] = {Url = "https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/move-diagonal-2.svg", Id = 12},
-        key = {Url = "https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/key.svg", Id = 13},
-        move = {Url = "https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/move.svg", Id = 14},
-        search = {Url = "https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/search.svg", Id = 15},
+        sword = {Url = baseUrl .. "sword.png", Id = 1},
+        target = {Url = baseUrl .. "target.png", Id = 2},
+        users = {Url = baseUrl .. "users.png", Id = 3},
+        eye = {Url = baseUrl .. "eye.png", Id = 4},
+        trees = {Url = baseUrl .. "trees.png", Id = 5},
+        user = {Url = baseUrl .. "user.png", Id = 6},
+        heart = {Url = baseUrl .. "heart.png", Id = 7},
+        star = {Url = baseUrl .. "star.png", Id = 8},
+        settings = {Url = baseUrl .. "settings.png", Id = 9},
+        check = {Url = baseUrl .. "check.png", Id = 10},
+        ["chevron-up"] = {Url = baseUrl .. "chevron-up.png", Id = 11},
+        ["move-diagonal-2"] = {Url = baseUrl .. "move-diagonal-2.png", Id = 12},
+        key = {Url = baseUrl .. "key.png", Id = 13},
+        move = {Url = baseUrl .. "move.png", Id = 14},
+        search = {Url = baseUrl .. "search.png", Id = 15},
     }
     
     return {
