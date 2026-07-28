@@ -1114,30 +1114,34 @@ type IconModule = {
 }
 
 local FetchIcons, Icons = pcall(function()
-    -- Fallback icon mapping using Roblox built-in assets
+    -- Icon data with URLs pointing to lucide-icons CDN
+    local iconData = {
+        sword = {Url = "https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/sword.svg", Id = 1},
+        target = {Url = "https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/target.svg", Id = 2},
+        users = {Url = "https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/users.svg", Id = 3},
+        eye = {Url = "https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/eye.svg", Id = 4},
+        trees = {Url = "https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/trees.svg", Id = 5},
+        user = {Url = "https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/user.svg", Id = 6},
+        heart = {Url = "https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/heart.svg", Id = 7},
+        star = {Url = "https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/star.svg", Id = 8},
+        settings = {Url = "https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/settings.svg", Id = 9},
+        check = {Url = "https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/check.svg", Id = 10},
+        ["chevron-up"] = {Url = "https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/chevron-up.svg", Id = 11},
+        ["move-diagonal-2"] = {Url = "https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/move-diagonal-2.svg", Id = 12},
+        key = {Url = "https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/key.svg", Id = 13},
+        move = {Url = "https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/move.svg", Id = 14},
+        search = {Url = "https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/search.svg", Id = 15},
+    }
+    
     return {
         GetAsset = function(name)
-            local iconMap = {
-                sword = "rbxassetid://7072706",
-                target = "rbxassetid://6022668",
-                users = "rbxassetid://6023426",
-                eye = "rbxassetid://6022630",
-                trees = "rbxassetid://6031925",
-                user = "rbxassetid://6023426",
-                heart = "rbxassetid://6022721",
-                star = "rbxassetid://6022743",
-                settings = "rbxassetid://6022713",
-                check = "rbxassetid://6022645",
-                ["chevron-up"] = "rbxassetid://6023097",
-                ["move-diagonal-2"] = "rbxassetid://6022721",
-                key = "rbxassetid://6022686",
-                move = "rbxassetid://6022721",
-                search = "rbxassetid://6023098",
-            }
-            if iconMap[name] then
+            if iconData[name] then
                 return {
-                    Url = iconMap[name],
-                    Custom = false,
+                    Url = iconData[name].Url,
+                    Id = iconData[name].Id,
+                    IconName = name,
+                    ImageRectOffset = Vector2.zero,
+                    ImageRectSize = Vector2.zero,
                 }
             end
             return nil
